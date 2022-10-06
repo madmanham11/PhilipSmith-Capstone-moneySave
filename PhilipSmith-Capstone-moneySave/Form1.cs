@@ -26,6 +26,39 @@ namespace PhilipSmith_Capstone_moneySave
 
         private void monthMath()
         {
+            Money = double.Parse(income.Text);
+            if (Money < 100)
+            {
+                MessageBox.Show("you should really get a job or something");
+            }
+
+            //free spend
+            double f = 0;
+            f = Money * 0.15;
+            Math.Ceiling(f);
+            freespend.Text = f.ToString();
+            
+            //MessageBox.Show(Money.ToString());
+                Money = double.Parse(income.Text) - Money;
+            
+            //groceries
+            Money = Money * 0.25;
+                grocery.Text = Money.ToString();
+            Math.Ceiling(Money);
+            //necessities
+            Money = double.Parse(income.Text) - Money;
+
+
+            Money = Money * 0.25;
+            necessities.Text = Money.ToString();
+
+            //limited money
+            Money = double.Parse(income.Text) - Money;
+           
+            Money = Money * 0.20;
+            
+            
+            Limit.Text = Money.ToString();
             
         }
 

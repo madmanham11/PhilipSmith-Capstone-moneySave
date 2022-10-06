@@ -44,6 +44,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.moneyTip = new System.Windows.Forms.TextBox();
+            this.Limit = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // income
@@ -67,6 +68,7 @@ namespace PhilipSmith_Capstone_moneySave
             // 
             this.grocery.Location = new System.Drawing.Point(43, 159);
             this.grocery.Name = "grocery";
+            this.grocery.ReadOnly = true;
             this.grocery.Size = new System.Drawing.Size(116, 22);
             this.grocery.TabIndex = 2;
             this.grocery.Text = "grocery spending";
@@ -75,6 +77,7 @@ namespace PhilipSmith_Capstone_moneySave
             // 
             this.necessities.Location = new System.Drawing.Point(203, 159);
             this.necessities.Name = "necessities";
+            this.necessities.ReadOnly = true;
             this.necessities.Size = new System.Drawing.Size(100, 22);
             this.necessities.TabIndex = 3;
             this.necessities.Text = "Necessities";
@@ -84,6 +87,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.tuition.AccessibleDescription = "";
             this.tuition.Location = new System.Drawing.Point(43, 209);
             this.tuition.Name = "tuition";
+            this.tuition.ReadOnly = true;
             this.tuition.Size = new System.Drawing.Size(100, 22);
             this.tuition.TabIndex = 4;
             this.tuition.Text = "tuition(optional)";
@@ -92,6 +96,7 @@ namespace PhilipSmith_Capstone_moneySave
             // 
             this.bills.Location = new System.Drawing.Point(203, 208);
             this.bills.Name = "bills";
+            this.bills.ReadOnly = true;
             this.bills.Size = new System.Drawing.Size(100, 22);
             this.bills.TabIndex = 5;
             this.bills.Text = "Bills(optional)";
@@ -100,6 +105,7 @@ namespace PhilipSmith_Capstone_moneySave
             // 
             this.freespend.Location = new System.Drawing.Point(43, 274);
             this.freespend.Name = "freespend";
+            this.freespend.ReadOnly = true;
             this.freespend.Size = new System.Drawing.Size(116, 22);
             this.freespend.TabIndex = 6;
             this.freespend.Text = "FreeSpendLimit";
@@ -108,6 +114,7 @@ namespace PhilipSmith_Capstone_moneySave
             // 
             this.totalSavings.Location = new System.Drawing.Point(203, 274);
             this.totalSavings.Name = "totalSavings";
+            this.totalSavings.ReadOnly = true;
             this.totalSavings.Size = new System.Drawing.Size(100, 22);
             this.totalSavings.TabIndex = 7;
             this.totalSavings.Text = "Total Savings";
@@ -178,15 +185,26 @@ namespace PhilipSmith_Capstone_moneySave
             this.moneyTip.Location = new System.Drawing.Point(474, 169);
             this.moneyTip.Multiline = true;
             this.moneyTip.Name = "moneyTip";
+            this.moneyTip.ReadOnly = true;
             this.moneyTip.Size = new System.Drawing.Size(268, 152);
             this.moneyTip.TabIndex = 14;
             this.moneyTip.Text = "money tip";
+            // 
+            // Limit
+            // 
+            this.Limit.Location = new System.Drawing.Point(175, 337);
+            this.Limit.Name = "Limit";
+            this.Limit.ReadOnly = true;
+            this.Limit.Size = new System.Drawing.Size(100, 22);
+            this.Limit.TabIndex = 15;
+            this.Limit.Text = "Limit";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Limit);
             this.Controls.Add(this.moneyTip);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -226,6 +244,7 @@ namespace PhilipSmith_Capstone_moneySave
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox moneyTip;
+        private System.Windows.Forms.TextBox Limit;
     }
 }
 
