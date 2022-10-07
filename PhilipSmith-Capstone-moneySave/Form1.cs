@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -33,31 +34,34 @@ namespace PhilipSmith_Capstone_moneySave
             }
 
             //free spend
-            double f = 0;
-            f = Money * 0.15;
-            Math.Ceiling(f);
-            freespend.Text = f.ToString();
+            Money = Money * 0.15;
+            
+             Money = Math.Round(Money, 2);
+            freespend.Text = Money.ToString();
             
             //MessageBox.Show(Money.ToString());
                 Money = double.Parse(income.Text) - Money;
             
             //groceries
-            Money = Money * 0.25;
-                grocery.Text = Money.ToString();
-            Math.Ceiling(Money);
+            Money = Money * 0.50;
+            Money = Math.Round(Money, 2);
+            grocery.Text = Money.ToString();
+            
+            
             //necessities
             Money = double.Parse(income.Text) - Money;
 
 
             Money = Money * 0.25;
+            Money = Math.Round(Money, 2);
             necessities.Text = Money.ToString();
 
             //limited money
             Money = double.Parse(income.Text) - Money;
            
             Money = Money * 0.20;
-            
-            
+
+            Money = Math.Round(Money, 2);
             Limit.Text = Money.ToString();
             
         }
@@ -78,6 +82,23 @@ namespace PhilipSmith_Capstone_moneySave
             else
             {
                 MessageBox.Show("we cant do anything without either monthly or weekly spending");
+            }
+        }
+
+        private void DBSchema_Click(object sender, EventArgs e)
+        {
+            string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;Integrated Security=True";
+            SqlConnection conn = new SqlConnection(cs);
+
+            try
+            {
+                conn.Open();
+                MessageBox.Show("Connection passed");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error" + ex.Message);
+                conn.Close();
             }
         }
     }

@@ -45,6 +45,9 @@ namespace PhilipSmith_Capstone_moneySave
             this.button2 = new System.Windows.Forms.Button();
             this.moneyTip = new System.Windows.Forms.TextBox();
             this.Limit = new System.Windows.Forms.TextBox();
+            this.TuitionAmount = new System.Windows.Forms.TextBox();
+            this.BillAmount = new System.Windows.Forms.TextBox();
+            this.DBSchema = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // income
@@ -199,11 +202,42 @@ namespace PhilipSmith_Capstone_moneySave
             this.Limit.TabIndex = 15;
             this.Limit.Text = "Limit";
             // 
+            // TuitionAmount
+            // 
+            this.TuitionAmount.Location = new System.Drawing.Point(474, 121);
+            this.TuitionAmount.Name = "TuitionAmount";
+            this.TuitionAmount.Size = new System.Drawing.Size(100, 22);
+            this.TuitionAmount.TabIndex = 16;
+            this.TuitionAmount.Text = "tuition payment";
+            this.TuitionAmount.Visible = false;
+            // 
+            // BillAmount
+            // 
+            this.BillAmount.Location = new System.Drawing.Point(611, 120);
+            this.BillAmount.Name = "BillAmount";
+            this.BillAmount.Size = new System.Drawing.Size(100, 22);
+            this.BillAmount.TabIndex = 17;
+            this.BillAmount.Text = "Bill Payment";
+            this.BillAmount.Visible = false;
+            // 
+            // DBSchema
+            // 
+            this.DBSchema.Location = new System.Drawing.Point(203, 415);
+            this.DBSchema.Name = "DBSchema";
+            this.DBSchema.Size = new System.Drawing.Size(99, 23);
+            this.DBSchema.TabIndex = 18;
+            this.DBSchema.Text = "Save To DB";
+            this.DBSchema.UseVisualStyleBackColor = true;
+            this.DBSchema.Click += new System.EventHandler(this.DBSchema_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DBSchema);
+            this.Controls.Add(this.BillAmount);
+            this.Controls.Add(this.TuitionAmount);
             this.Controls.Add(this.Limit);
             this.Controls.Add(this.moneyTip);
             this.Controls.Add(this.button2);
@@ -245,6 +279,9 @@ namespace PhilipSmith_Capstone_moneySave
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox moneyTip;
         private System.Windows.Forms.TextBox Limit;
+        private System.Windows.Forms.TextBox TuitionAmount;
+        private System.Windows.Forms.TextBox BillAmount;
+        private System.Windows.Forms.Button DBSchema;
     }
 }
 
