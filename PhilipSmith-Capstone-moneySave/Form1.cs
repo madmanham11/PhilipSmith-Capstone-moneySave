@@ -29,50 +29,65 @@ namespace PhilipSmith_Capstone_moneySave
 
         private void monthMath()
         {
-
+            //gives money a value to math with
             Money = double.Parse(income.Text);
+
+            //apply savings
             save = double.Parse(saving.Text);
-            if (save >= Money || save >= 100)
+            if (save >= 100)
             {
                 MessageBox.Show("you cant save more than 100 \n" +
                     "it builds overtime as a safety");
             }
+            else
+            {
+              double  saved =  Money - save;
+            
+            }
+        
            
             if (Money < 100)
             {
                 MessageBox.Show("you should really get a job or something");
             }
 
-            //free spend
-            Money = Money * 0.15;
             
-             Money = Math.Round(Money, 2);
-            freespend.Text = Money.ToString();
+
+
+            //free spend
+             double free = Money * 0.15;
+            
+             free = Math.Round(free, 2);
+            freespend.Text = free.ToString();
             
             //MessageBox.Show(Money.ToString());
-                Money = double.Parse(income.Text) - Money;
+                Money =  Money - free;
             
             //groceries
-            Money = Money * 0.50;
-            Money = Math.Round(Money, 2);
-            grocery.Text = Money.ToString();
+            double gros = Money * 0.50;
+            gros = Math.Round(gros, 2);
+            grocery.Text = gros.ToString();
             
             
             //necessities
-            Money = double.Parse(income.Text) - Money;
+            Money = Money - gros;
 
 
-            Money = Money * 0.25;
-            Money = Math.Round(Money, 2);
-            necessities.Text = Money.ToString();
+            double nec = Money * 0.25;
+            nec = Math.Round(nec, 2);
+            necessities.Text = nec.ToString();
 
             //limited money
-            Money = double.Parse(income.Text) - Money;
+            Money = Money - nec;
            
-            Money = Money * 0.20;
+             double lim = Money * 0.20;
 
-            Money = Math.Round(Money, 2);
-            Limit.Text = Money.ToString();
+            lim = Math.Round(lim, 2);
+            Limit.Text = lim.ToString();
+
+            //total value
+            Money =  Money - lim;
+            totalSavings.Text = Money.ToString();
             
         }
 
@@ -108,17 +123,34 @@ namespace PhilipSmith_Capstone_moneySave
         private void DBSchema_Click(object sender, EventArgs e)
         {
             string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;Integrated Security=True";
-            SqlConnection conn = new SqlConnection(cs);
+            string test = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Philip Smith\source\repos\PhilipSmith-Capstone-moneySave\PhilipSmith-Capstone-moneySave\Database1.mdf;Integrated Security=True";
+            SqlConnection conn = new SqlConnection(test);
+            SqlCommand cmd = new SqlCommand("insert into MoneyData" +
+                "(Income, Grocery, necesities, freespend, limit, tuition, bills, totalSavings, Saving)" +
+                "values(@Income, @Grocery, @necessities, @freespend, @limit, @tuition, @bills, @totalSavings, @Saving)", conn);
 
-            try
+            conn.Open();
+            //cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Income", income.Text);
+            cmd.Parameters.AddWithValue("@Grocery", grocery.Text);
+            cmd.Parameters.AddWithValue("@necessities", necessities.Text);
+            cmd.Parameters.AddWithValue("@freespend", freespend.Text);
+            cmd.Parameters.AddWithValue("@limit", Limit.Text);
+            cmd.Parameters.AddWithValue("@tuition", tuition.Text);
+            cmd.Parameters.AddWithValue("@bills", bills.Text);
+            cmd.Parameters.AddWithValue("@totalSavings", totalSavings.Text);
+            cmd.Parameters.AddWithValue("@Saving", saving.Text);
+            
+            int i = cmd.ExecuteNonQuery();
+            //conn.Close();
+            if (i != 0)
             {
-                conn.Open();
-                MessageBox.Show("Connection passed");
+                MessageBox.Show(i + "Data Saved");
             }
-            catch(Exception ex)
+            else
             {
-                MessageBox.Show("Error" + ex.Message);
-                conn.Close();
+                //pain
+                MessageBox.Show("Unable to obtain");
             }
         }
     }
