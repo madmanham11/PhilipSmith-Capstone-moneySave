@@ -48,6 +48,16 @@ namespace PhilipSmith_Capstone_moneySave
             this.TuitionAmount = new System.Windows.Forms.TextBox();
             this.BillAmount = new System.Windows.Forms.TextBox();
             this.DBSchema = new System.Windows.Forms.Button();
+            this.confirmBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // income
@@ -56,16 +66,16 @@ namespace PhilipSmith_Capstone_moneySave
             this.income.Name = "income";
             this.income.Size = new System.Drawing.Size(116, 22);
             this.income.TabIndex = 0;
-            this.income.Text = "income(monthly)";
+            this.income.Text = "0";
             this.income.TextChanged += new System.EventHandler(this.income_TextChanged);
             // 
             // saving
             // 
-            this.saving.Location = new System.Drawing.Point(43, 74);
+            this.saving.Location = new System.Drawing.Point(43, 90);
             this.saving.Name = "saving";
             this.saving.Size = new System.Drawing.Size(100, 22);
             this.saving.TabIndex = 1;
-            this.saving.Text = "how much save";
+            this.saving.Text = "0";
             // 
             // grocery
             // 
@@ -74,7 +84,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.grocery.ReadOnly = true;
             this.grocery.Size = new System.Drawing.Size(116, 22);
             this.grocery.TabIndex = 2;
-            this.grocery.Text = "grocery spending";
+            this.grocery.Text = "0";
             // 
             // necessities
             // 
@@ -83,7 +93,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.necessities.ReadOnly = true;
             this.necessities.Size = new System.Drawing.Size(100, 22);
             this.necessities.TabIndex = 3;
-            this.necessities.Text = "Necessities";
+            this.necessities.Text = "0";
             // 
             // tuition
             // 
@@ -93,7 +103,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.tuition.ReadOnly = true;
             this.tuition.Size = new System.Drawing.Size(100, 22);
             this.tuition.TabIndex = 4;
-            this.tuition.Text = "tuition(optional)";
+            this.tuition.Text = "0";
             // 
             // bills
             // 
@@ -102,7 +112,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.bills.ReadOnly = true;
             this.bills.Size = new System.Drawing.Size(100, 22);
             this.bills.TabIndex = 5;
-            this.bills.Text = "Bills(optional)";
+            this.bills.Text = "0";
             // 
             // freespend
             // 
@@ -111,7 +121,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.freespend.ReadOnly = true;
             this.freespend.Size = new System.Drawing.Size(116, 22);
             this.freespend.TabIndex = 6;
-            this.freespend.Text = "FreeSpendLimit";
+            this.freespend.Text = "0";
             // 
             // totalSavings
             // 
@@ -120,12 +130,12 @@ namespace PhilipSmith_Capstone_moneySave
             this.totalSavings.ReadOnly = true;
             this.totalSavings.Size = new System.Drawing.Size(100, 22);
             this.totalSavings.TabIndex = 7;
-            this.totalSavings.Text = "Total Savings";
+            this.totalSavings.Text = "0";
             // 
             // rbMonth
             // 
             this.rbMonth.AutoSize = true;
-            this.rbMonth.Location = new System.Drawing.Point(584, 46);
+            this.rbMonth.Location = new System.Drawing.Point(474, 44);
             this.rbMonth.Name = "rbMonth";
             this.rbMonth.Size = new System.Drawing.Size(78, 21);
             this.rbMonth.TabIndex = 8;
@@ -136,7 +146,7 @@ namespace PhilipSmith_Capstone_moneySave
             // rbWeek
             // 
             this.rbWeek.AutoSize = true;
-            this.rbWeek.Location = new System.Drawing.Point(584, 74);
+            this.rbWeek.Location = new System.Drawing.Point(474, 74);
             this.rbWeek.Name = "rbWeek";
             this.rbWeek.Size = new System.Drawing.Size(75, 21);
             this.rbWeek.TabIndex = 9;
@@ -147,7 +157,7 @@ namespace PhilipSmith_Capstone_moneySave
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(669, 46);
+            this.checkBox1.Location = new System.Drawing.Point(611, 46);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(73, 21);
             this.checkBox1.TabIndex = 10;
@@ -157,7 +167,7 @@ namespace PhilipSmith_Capstone_moneySave
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(666, 74);
+            this.checkBox2.Location = new System.Drawing.Point(611, 76);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(55, 21);
             this.checkBox2.TabIndex = 11;
@@ -200,7 +210,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.Limit.ReadOnly = true;
             this.Limit.Size = new System.Drawing.Size(100, 22);
             this.Limit.TabIndex = 15;
-            this.Limit.Text = "Limit";
+            this.Limit.Text = "0";
             // 
             // TuitionAmount
             // 
@@ -222,19 +232,122 @@ namespace PhilipSmith_Capstone_moneySave
             // 
             // DBSchema
             // 
+            this.DBSchema.Enabled = false;
             this.DBSchema.Location = new System.Drawing.Point(203, 415);
             this.DBSchema.Name = "DBSchema";
             this.DBSchema.Size = new System.Drawing.Size(99, 23);
             this.DBSchema.TabIndex = 18;
             this.DBSchema.Text = "Save To DB";
             this.DBSchema.UseVisualStyleBackColor = true;
+            this.DBSchema.Visible = false;
             this.DBSchema.Click += new System.EventHandler(this.DBSchema_Click);
+            // 
+            // confirmBtn
+            // 
+            this.confirmBtn.Location = new System.Drawing.Point(599, 16);
+            this.confirmBtn.Name = "confirmBtn";
+            this.confirmBtn.Size = new System.Drawing.Size(124, 24);
+            this.confirmBtn.TabIndex = 19;
+            this.confirmBtn.Text = "tuition/bill con";
+            this.confirmBtn.UseVisualStyleBackColor = true;
+            this.confirmBtn.Click += new System.EventHandler(this.confirmBtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 17);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Income";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(40, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(209, 17);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "how much do you want to save?";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(40, 139);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 17);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Grocery";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(200, 139);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 17);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Necessities";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(40, 189);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 17);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "tuition";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(200, 189);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(32, 17);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "bills";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(40, 254);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(104, 17);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "free spend limit";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(200, 254);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 17);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "total savings";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(172, 317);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 17);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "label9";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.confirmBtn);
             this.Controls.Add(this.DBSchema);
             this.Controls.Add(this.BillAmount);
             this.Controls.Add(this.TuitionAmount);
@@ -282,6 +395,16 @@ namespace PhilipSmith_Capstone_moneySave
         private System.Windows.Forms.TextBox TuitionAmount;
         private System.Windows.Forms.TextBox BillAmount;
         private System.Windows.Forms.Button DBSchema;
+        private System.Windows.Forms.Button confirmBtn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }
 

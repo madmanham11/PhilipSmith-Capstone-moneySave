@@ -14,9 +14,10 @@ namespace PhilipSmith_Capstone_moneySave
     public partial class Form1 : Form
     {
         private double Money;
-        private double save;
-         
-
+        private double save = 0;
+        private double pain = 0;
+        private double bill = 0;
+        
         public Form1()
         {
             InitializeComponent();
@@ -31,6 +32,15 @@ namespace PhilipSmith_Capstone_moneySave
         {
             //gives money a value to math with
             Money = double.Parse(income.Text);
+            pain = double.Parse(TuitionAmount.Text);
+            bill = double.Parse(BillAmount.Text);
+            //tuition payment in box
+            Money = Money - pain;
+            tuition.Text = pain.ToString();
+            //bills payment thrown into its box
+            Money = Money - bill;
+            bills.Text = bill.ToString();
+           
 
             //apply savings
             save = double.Parse(saving.Text);
@@ -42,6 +52,7 @@ namespace PhilipSmith_Capstone_moneySave
             else
             {
               double  saved =  Money - save;
+             
             
             }
         
@@ -88,13 +99,23 @@ namespace PhilipSmith_Capstone_moneySave
             //total value
             Money =  Money - lim;
             totalSavings.Text = Money.ToString();
+
+            income.ReadOnly = true;
+            saving.ReadOnly = true;
+            TuitionAmount.ReadOnly = true;
+            BillAmount.ReadOnly = true;
+            DBSchema.Visible = true;
+            DBSchema.Enabled = true;
+            button1.Enabled = false;
+            confirmBtn.Enabled = false;
             
         }
-
         private void weekMath()
         {
-           
+
         }
+
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -122,7 +143,7 @@ namespace PhilipSmith_Capstone_moneySave
 
         private void DBSchema_Click(object sender, EventArgs e)
         {
-            string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;Integrated Security=True";
+            //string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;Integrated Security=True";
             string test = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Philip Smith\source\repos\PhilipSmith-Capstone-moneySave\PhilipSmith-Capstone-moneySave\Database1.mdf;Integrated Security=True";
             SqlConnection conn = new SqlConnection(test);
             SqlCommand cmd = new SqlCommand("insert into MoneyData" +
@@ -151,6 +172,29 @@ namespace PhilipSmith_Capstone_moneySave
             {
                 //pain
                 MessageBox.Show("Unable to obtain");
+            }
+        }
+
+        private void confirmBtn_Click(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                TuitionAmount.Visible = true;
+            }
+            else
+            {
+                TuitionAmount.Visible = false;
+                TuitionAmount.Text = pain.ToString();
+            }
+
+            if(checkBox2.Checked == true)
+            {
+                BillAmount.Visible = true;
+            }
+            else
+            {
+                BillAmount.Visible = false;
+                BillAmount.Text = bill.ToString();
             }
         }
     }
