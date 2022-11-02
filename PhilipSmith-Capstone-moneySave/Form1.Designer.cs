@@ -48,7 +48,6 @@ namespace PhilipSmith_Capstone_moneySave
             this.TuitionAmount = new System.Windows.Forms.TextBox();
             this.BillAmount = new System.Windows.Forms.TextBox();
             this.DBSchema = new System.Windows.Forms.Button();
-            this.confirmBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,6 +57,10 @@ namespace PhilipSmith_Capstone_moneySave
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.Lpay = new System.Windows.Forms.Label();
+            this.Bpay = new System.Windows.Forms.Label();
+            this.priorGrocery = new System.Windows.Forms.CheckBox();
+            this.PriorNecess = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // income
@@ -104,6 +107,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.tuition.Size = new System.Drawing.Size(100, 22);
             this.tuition.TabIndex = 4;
             this.tuition.Text = "0";
+            this.tuition.Visible = false;
             // 
             // bills
             // 
@@ -113,6 +117,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.bills.Size = new System.Drawing.Size(100, 22);
             this.bills.TabIndex = 5;
             this.bills.Text = "0";
+            this.bills.Visible = false;
             // 
             // freespend
             // 
@@ -163,6 +168,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.checkBox1.TabIndex = 10;
             this.checkBox1.Text = "Tuition";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -173,6 +179,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.checkBox2.TabIndex = 11;
             this.checkBox2.Text = "Bills";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // button1
             // 
@@ -192,6 +199,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.button2.TabIndex = 13;
             this.button2.Text = "Adjust";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // moneyTip
             // 
@@ -218,8 +226,9 @@ namespace PhilipSmith_Capstone_moneySave
             this.TuitionAmount.Name = "TuitionAmount";
             this.TuitionAmount.Size = new System.Drawing.Size(100, 22);
             this.TuitionAmount.TabIndex = 16;
-            this.TuitionAmount.Text = "tuition payment";
+            this.TuitionAmount.Text = "0";
             this.TuitionAmount.Visible = false;
+            this.TuitionAmount.TextChanged += new System.EventHandler(this.TuitionAmount_TextChanged);
             // 
             // BillAmount
             // 
@@ -227,7 +236,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.BillAmount.Name = "BillAmount";
             this.BillAmount.Size = new System.Drawing.Size(100, 22);
             this.BillAmount.TabIndex = 17;
-            this.BillAmount.Text = "Bill Payment";
+            this.BillAmount.Text = "0";
             this.BillAmount.Visible = false;
             // 
             // DBSchema
@@ -241,16 +250,6 @@ namespace PhilipSmith_Capstone_moneySave
             this.DBSchema.UseVisualStyleBackColor = true;
             this.DBSchema.Visible = false;
             this.DBSchema.Click += new System.EventHandler(this.DBSchema_Click);
-            // 
-            // confirmBtn
-            // 
-            this.confirmBtn.Location = new System.Drawing.Point(599, 16);
-            this.confirmBtn.Name = "confirmBtn";
-            this.confirmBtn.Size = new System.Drawing.Size(124, 24);
-            this.confirmBtn.TabIndex = 19;
-            this.confirmBtn.Text = "tuition/bill con";
-            this.confirmBtn.UseVisualStyleBackColor = true;
-            this.confirmBtn.Click += new System.EventHandler(this.confirmBtn_Click);
             // 
             // label1
             // 
@@ -296,6 +295,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.label5.Size = new System.Drawing.Size(46, 17);
             this.label5.TabIndex = 24;
             this.label5.Text = "tuition";
+            this.label5.Visible = false;
             // 
             // label6
             // 
@@ -305,6 +305,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.label6.Size = new System.Drawing.Size(32, 17);
             this.label6.TabIndex = 25;
             this.label6.Text = "bills";
+            this.label6.Visible = false;
             // 
             // label7
             // 
@@ -329,15 +330,59 @@ namespace PhilipSmith_Capstone_moneySave
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(172, 317);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 17);
+            this.label9.Size = new System.Drawing.Size(82, 17);
             this.label9.TabIndex = 28;
-            this.label9.Text = "label9";
+            this.label9.Text = "Spend Limit";
+            // 
+            // Lpay
+            // 
+            this.Lpay.AutoSize = true;
+            this.Lpay.Location = new System.Drawing.Point(471, 101);
+            this.Lpay.Name = "Lpay";
+            this.Lpay.Size = new System.Drawing.Size(105, 17);
+            this.Lpay.TabIndex = 29;
+            this.Lpay.Text = "tuition Payment";
+            this.Lpay.Visible = false;
+            // 
+            // Bpay
+            // 
+            this.Bpay.AutoSize = true;
+            this.Bpay.Location = new System.Drawing.Point(608, 101);
+            this.Bpay.Name = "Bpay";
+            this.Bpay.Size = new System.Drawing.Size(84, 17);
+            this.Bpay.TabIndex = 30;
+            this.Bpay.Text = "Bill payment";
+            this.Bpay.Visible = false;
+            // 
+            // priorGrocery
+            // 
+            this.priorGrocery.AutoSize = true;
+            this.priorGrocery.Location = new System.Drawing.Point(43, 118);
+            this.priorGrocery.Name = "priorGrocery";
+            this.priorGrocery.Size = new System.Drawing.Size(84, 21);
+            this.priorGrocery.TabIndex = 31;
+            this.priorGrocery.Text = "prioritize";
+            this.priorGrocery.UseVisualStyleBackColor = true;
+            // 
+            // PriorNecess
+            // 
+            this.PriorNecess.AutoSize = true;
+            this.PriorNecess.Location = new System.Drawing.Point(203, 122);
+            this.PriorNecess.Name = "PriorNecess";
+            this.PriorNecess.Size = new System.Drawing.Size(84, 21);
+            this.PriorNecess.TabIndex = 32;
+            this.PriorNecess.Text = "prioritize";
+            this.PriorNecess.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.PriorNecess);
+            this.Controls.Add(this.priorGrocery);
+            this.Controls.Add(this.Bpay);
+            this.Controls.Add(this.Lpay);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -347,7 +392,6 @@ namespace PhilipSmith_Capstone_moneySave
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.confirmBtn);
             this.Controls.Add(this.DBSchema);
             this.Controls.Add(this.BillAmount);
             this.Controls.Add(this.TuitionAmount);
@@ -395,7 +439,6 @@ namespace PhilipSmith_Capstone_moneySave
         private System.Windows.Forms.TextBox TuitionAmount;
         private System.Windows.Forms.TextBox BillAmount;
         private System.Windows.Forms.Button DBSchema;
-        private System.Windows.Forms.Button confirmBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -405,6 +448,10 @@ namespace PhilipSmith_Capstone_moneySave
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label Lpay;
+        private System.Windows.Forms.Label Bpay;
+        private System.Windows.Forms.CheckBox priorGrocery;
+        private System.Windows.Forms.CheckBox PriorNecess;
     }
 }
 

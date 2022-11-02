@@ -107,7 +107,7 @@ namespace PhilipSmith_Capstone_moneySave
             DBSchema.Visible = true;
             DBSchema.Enabled = true;
             button1.Enabled = false;
-            confirmBtn.Enabled = false;
+            //confirmBtn.Enabled = false;
             
         }
         private void weekMath()
@@ -175,27 +175,72 @@ namespace PhilipSmith_Capstone_moneySave
             }
         }
 
-        private void confirmBtn_Click(object sender, EventArgs e)
+       
+        private void TuitionAmount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked == true)
             {
                 TuitionAmount.Visible = true;
+                Lpay.Visible = true;
+                label5.Visible = true;
+                tuition.Visible = true;
             }
             else
             {
                 TuitionAmount.Visible = false;
+                Lpay.Visible = false;
+                label5.Visible = false;
+                tuition.Visible = false;
                 TuitionAmount.Text = pain.ToString();
             }
 
-            if(checkBox2.Checked == true)
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked == true)
             {
                 BillAmount.Visible = true;
+                Bpay.Visible = true;
+                label6.Visible = true;
+                bills.Visible = true;
             }
             else
             {
                 BillAmount.Visible = false;
+                Bpay.Visible = false;
+                label6.Visible = false;
+                bills.Visible = false;
+
                 BillAmount.Text = bill.ToString();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            income.ReadOnly = false;
+            saving.ReadOnly = false;
+            TuitionAmount.ReadOnly = false;
+            BillAmount.ReadOnly = false;
+            DBSchema.Visible = false;
+            DBSchema.Enabled = false;
+            button1.Enabled = true;
+
+            income.Text = 0.ToString();
+            TuitionAmount.Text = 0.ToString();
+            BillAmount.Text = 0.ToString();
+            grocery.Text = 0.ToString();
+            necessities.Text = 0.ToString();
+            freespend.Text = 0.ToString();
+            Limit.Text = 0.ToString();
+            totalSavings.Text = 0.ToString();
+            tuition.Text = 0.ToString();
+            bills.Text = 0.ToString();
         }
     }
 }
