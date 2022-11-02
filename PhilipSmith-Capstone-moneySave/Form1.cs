@@ -73,18 +73,34 @@ namespace PhilipSmith_Capstone_moneySave
             
             //MessageBox.Show(Money.ToString());
                 Money =  Money - free;
-            
+
             //groceries
-            double gros = Money * 0.50;
+            double gros = 0;
+            if (priorGrocery.Checked == false)
+            {
+                gros = Money * 0.50;
+            }
+            else
+            {
+                //placeholder
+                gros = Money * 0 ;
+            }
             gros = Math.Round(gros, 2);
             grocery.Text = gros.ToString();
-            
-            
+
+
             //necessities
             Money = Money - gros;
-
-
-            double nec = Money * 0.25;
+            double nec = 0;
+            if(PriorNecess.Checked == false)
+            {
+               nec = Money * 0.25;
+            }
+            else
+            {
+                nec = Money * 0;
+            }
+            
             nec = Math.Round(nec, 2);
             necessities.Text = nec.ToString();
 
