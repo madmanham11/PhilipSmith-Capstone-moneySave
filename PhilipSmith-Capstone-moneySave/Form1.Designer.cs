@@ -61,6 +61,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.Bpay = new System.Windows.Forms.Label();
             this.priorGrocery = new System.Windows.Forms.CheckBox();
             this.PriorNecess = new System.Windows.Forms.CheckBox();
+            this.savingWeek = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // income
@@ -147,6 +148,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.rbMonth.TabStop = true;
             this.rbMonth.Text = "Monthly";
             this.rbMonth.UseVisualStyleBackColor = true;
+            this.rbMonth.CheckedChanged += new System.EventHandler(this.rbMonth_CheckedChanged);
             // 
             // rbWeek
             // 
@@ -158,6 +160,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.rbWeek.TabStop = true;
             this.rbWeek.Text = "Weekly";
             this.rbWeek.UseVisualStyleBackColor = true;
+            this.rbWeek.CheckedChanged += new System.EventHandler(this.rbWeek_CheckedChanged);
             // 
             // checkBox1
             // 
@@ -363,6 +366,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.priorGrocery.TabIndex = 31;
             this.priorGrocery.Text = "prioritize";
             this.priorGrocery.UseVisualStyleBackColor = true;
+            this.priorGrocery.CheckedChanged += new System.EventHandler(this.priorGrocery_CheckedChanged);
             // 
             // PriorNecess
             // 
@@ -373,12 +377,26 @@ namespace PhilipSmith_Capstone_moneySave
             this.PriorNecess.TabIndex = 32;
             this.PriorNecess.Text = "prioritize";
             this.PriorNecess.UseVisualStyleBackColor = true;
+            this.PriorNecess.CheckedChanged += new System.EventHandler(this.PriorNecess_CheckedChanged);
+            // 
+            // savingWeek
+            // 
+            this.savingWeek.AutoSize = true;
+            this.savingWeek.Location = new System.Drawing.Point(161, 90);
+            this.savingWeek.Name = "savingWeek";
+            this.savingWeek.Size = new System.Drawing.Size(138, 21);
+            this.savingWeek.TabIndex = 33;
+            this.savingWeek.Text = "Saving for week?";
+            this.savingWeek.UseVisualStyleBackColor = true;
+            this.savingWeek.Visible = false;
+            this.savingWeek.CheckedChanged += new System.EventHandler(this.savingWeek_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.savingWeek);
             this.Controls.Add(this.PriorNecess);
             this.Controls.Add(this.priorGrocery);
             this.Controls.Add(this.Bpay);
@@ -452,6 +470,7 @@ namespace PhilipSmith_Capstone_moneySave
         private System.Windows.Forms.Label Bpay;
         private System.Windows.Forms.CheckBox priorGrocery;
         private System.Windows.Forms.CheckBox PriorNecess;
+        private System.Windows.Forms.CheckBox savingWeek;
     }
 }
 

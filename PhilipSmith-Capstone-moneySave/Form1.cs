@@ -40,6 +40,14 @@ namespace PhilipSmith_Capstone_moneySave
             //bills payment thrown into its box
             Money = Money - bill;
             bills.Text = bill.ToString();
+
+            //check to make sure the user is not prioritizing both
+           /* if(priorGrocery.Checked == true && PriorNecess.Checked == true)
+            {
+                MessageBox.Show("we cannot allow you to prioritize in both categories");
+                System.Windows.Forms.Application.Exit();
+            }
+           */
            
 
             //apply savings
@@ -48,6 +56,9 @@ namespace PhilipSmith_Capstone_moneySave
             {
                 MessageBox.Show("you cant save more than 100 \n" +
                     "it builds overtime as a safety");
+                System.Windows.Forms.Application.Restart();
+                //System.Windows.Forms.Application.Exit();
+                
             }
             else
             {
@@ -60,6 +71,7 @@ namespace PhilipSmith_Capstone_moneySave
             if (Money < 100)
             {
                 MessageBox.Show("you should really get a job or something");
+                System.Windows.Forms.Application.Exit();
             }
 
             
@@ -83,7 +95,7 @@ namespace PhilipSmith_Capstone_moneySave
             else
             {
                 //placeholder
-                gros = Money * 0 ;
+                gros = Money * 0.60 ;
             }
             gros = Math.Round(gros, 2);
             grocery.Text = gros.ToString();
@@ -98,7 +110,7 @@ namespace PhilipSmith_Capstone_moneySave
             }
             else
             {
-                nec = Money * 0;
+                nec = Money * 0.35;
             }
             
             nec = Math.Round(nec, 2);
@@ -128,6 +140,23 @@ namespace PhilipSmith_Capstone_moneySave
         }
         private void weekMath()
         {
+            //set money values 
+            Money = double.Parse(income.Text);
+            save = double.Parse(saving.Text);
+
+            if (save >= 50)
+            {
+                MessageBox.Show("you cant save more than 50 per week \n" +
+                    "its more efficient to pick this over month that weekly");
+                System.Windows.Forms.Application.Restart();
+
+            }
+            else
+            {
+                double saved = Money - save;
+
+
+            }
 
         }
 
@@ -257,6 +286,60 @@ namespace PhilipSmith_Capstone_moneySave
             totalSavings.Text = 0.ToString();
             tuition.Text = 0.ToString();
             bills.Text = 0.ToString();
+        }
+
+        private void rbWeek_CheckedChanged(object sender, EventArgs e)
+        {
+            savingWeek.Visible = true;
+            checkBox1.Visible = false;
+            checkBox2.Visible = false;
+            saving.Visible = false;
+        }
+
+        private void rbMonth_CheckedChanged(object sender, EventArgs e)
+        {
+            savingWeek.Visible = false;
+            checkBox1.Visible = true;
+            checkBox2.Visible = true;
+            saving.Visible = true;
+        }
+
+        private void priorGrocery_CheckedChanged(object sender, EventArgs e)
+        {
+           
+            if(priorGrocery.Checked == false)
+            {
+                PriorNecess.Visible = true;
+            }
+            else
+            {
+                PriorNecess.Visible = false;
+            }
+        }
+
+        private void PriorNecess_CheckedChanged(object sender, EventArgs e)
+        {
+           
+            if(PriorNecess.Checked == false)
+            {
+                priorGrocery.Visible = true;
+            }
+            else
+            {
+                priorGrocery.Visible = false;
+            }
+        }
+
+        private void savingWeek_CheckedChanged(object sender, EventArgs e)
+        {
+            if(savingWeek.Checked == true)
+            {
+                saving.Visible = true;
+            }
+            else
+            {
+                saving.Visible = false;
+            }
         }
     }
 }
