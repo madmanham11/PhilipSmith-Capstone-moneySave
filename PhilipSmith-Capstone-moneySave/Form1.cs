@@ -157,10 +157,49 @@ namespace PhilipSmith_Capstone_moneySave
 
 
             }
+            //groceries
+            double gros = 0;
+            if (priorGrocery.Checked == false)
+            {
+                gros = Money * 0.15;
+            }
+            else
+            {
+                //placeholder
+                gros = Money * 0.20;
+            }
+            gros = Math.Round(gros, 2);
+            grocery.Text = gros.ToString();
+            Money = Money - gros;
 
+            //necessities
+            double nec = 0;
+            if (PriorNecess.Checked == false)
+            {
+                nec = Money * 0.06;
+            }
+            else
+            {
+                nec = Money * 0.10;
+            }
+
+            nec = Math.Round(nec, 2);
+            necessities.Text = nec.ToString();
+            Money = Money - nec;
+
+            //total
+
+            totalSavings.Text = Money.ToString();
+
+            //after math values 
+            income.ReadOnly = true;
+            saving.ReadOnly = true;
+            DBSchema.Visible = true;
+            DBSchema.Enabled = true;
+            button1.Enabled = false;
         }
 
-        
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -294,6 +333,10 @@ namespace PhilipSmith_Capstone_moneySave
             checkBox1.Visible = false;
             checkBox2.Visible = false;
             saving.Visible = false;
+            freespend.Visible = false;
+            label7.Visible = false;
+            Limit.Visible = false;
+            label9.Visible = false;
         }
 
         private void rbMonth_CheckedChanged(object sender, EventArgs e)
