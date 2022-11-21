@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.32413.511
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhilipSmith-Capstone-moneySave", "PhilipSmith-Capstone-moneySave\PhilipSmith-Capstone-moneySave.csproj", "{42B203B3-ED9D-4B93-B71F-5E814E6BE513}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginPage", "LoginPage\LoginPage.csproj", "{1A6BE291-AE56-4B3E-A555-09A55DE9C3BC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{42B203B3-ED9D-4B93-B71F-5E814E6BE513}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42B203B3-ED9D-4B93-B71F-5E814E6BE513}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42B203B3-ED9D-4B93-B71F-5E814E6BE513}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A6BE291-AE56-4B3E-A555-09A55DE9C3BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A6BE291-AE56-4B3E-A555-09A55DE9C3BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A6BE291-AE56-4B3E-A555-09A55DE9C3BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A6BE291-AE56-4B3E-A555-09A55DE9C3BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -159,7 +159,7 @@ namespace LoginPage
             this.Controls.Add(this.NewPass);
             this.Controls.Add(this.NewUser);
             this.Name = "Form2";
-            this.Text = "Form1";
+            this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -143,6 +143,14 @@ namespace PhilipSmith_Capstone_moneySave
             //set money values 
             Money = double.Parse(income.Text);
             save = double.Parse(saving.Text);
+            pain = double.Parse(TuitionAmount.Text);
+            bill = double.Parse(BillAmount.Text);
+            //tuition payment in box
+            Money = Money - pain;
+            tuition.Text = pain.ToString();
+            //bills payment thrown into its box
+            Money = Money - bill;
+            bills.Text = bill.ToString();
 
             if (save >= 50)
             {
@@ -215,9 +223,11 @@ namespace PhilipSmith_Capstone_moneySave
             moneyTip.Text = $"{quotes[index]}";
             if(rbMonth.Checked){
                 monthMath();
+                
             }else if (rbWeek.Checked)
             {
                 weekMath();
+                questionz.Visible = true;
             }
             else
             {
@@ -337,6 +347,7 @@ namespace PhilipSmith_Capstone_moneySave
             label7.Visible = false;
             Limit.Visible = false;
             label9.Visible = false;
+            questionz.Visible = true;
         }
 
         private void rbMonth_CheckedChanged(object sender, EventArgs e)
@@ -345,6 +356,7 @@ namespace PhilipSmith_Capstone_moneySave
             checkBox1.Visible = true;
             checkBox2.Visible = true;
             saving.Visible = true;
+            questionz.Visible = false;
         }
 
         private void priorGrocery_CheckedChanged(object sender, EventArgs e)
@@ -382,6 +394,20 @@ namespace PhilipSmith_Capstone_moneySave
             else
             {
                 saving.Visible = false;
+            }
+        }
+
+        private void questionz_CheckedChanged(object sender, EventArgs e)
+        {
+            if(questionz.Checked == true)
+            {
+                checkBox1.Visible = true;
+                checkBox2.Visible = true;
+            }
+            else
+            {
+                checkBox1.Visible = false;
+                checkBox2.Visible = false;
             }
         }
     }

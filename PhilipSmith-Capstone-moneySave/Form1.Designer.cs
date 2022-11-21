@@ -62,6 +62,7 @@ namespace PhilipSmith_Capstone_moneySave
             this.priorGrocery = new System.Windows.Forms.CheckBox();
             this.PriorNecess = new System.Windows.Forms.CheckBox();
             this.savingWeek = new System.Windows.Forms.CheckBox();
+            this.questionz = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // income
@@ -391,11 +392,24 @@ namespace PhilipSmith_Capstone_moneySave
             this.savingWeek.Visible = false;
             this.savingWeek.CheckedChanged += new System.EventHandler(this.savingWeek_CheckedChanged);
             // 
+            // questionz
+            // 
+            this.questionz.AutoSize = true;
+            this.questionz.Location = new System.Drawing.Point(474, 142);
+            this.questionz.Name = "questionz";
+            this.questionz.Size = new System.Drawing.Size(267, 21);
+            this.questionz.TabIndex = 34;
+            this.questionz.Text = "do you pay any bills/tuition this week?";
+            this.questionz.UseVisualStyleBackColor = true;
+            this.questionz.Visible = false;
+            this.questionz.CheckedChanged += new System.EventHandler(this.questionz_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.questionz);
             this.Controls.Add(this.savingWeek);
             this.Controls.Add(this.PriorNecess);
             this.Controls.Add(this.priorGrocery);
@@ -471,6 +485,7 @@ namespace PhilipSmith_Capstone_moneySave
         private System.Windows.Forms.CheckBox priorGrocery;
         private System.Windows.Forms.CheckBox PriorNecess;
         private System.Windows.Forms.CheckBox savingWeek;
+        private System.Windows.Forms.CheckBox questionz;
     }
 }
 

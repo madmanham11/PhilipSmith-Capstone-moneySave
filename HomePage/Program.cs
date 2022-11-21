@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PhilipSmith_Capstone_moneySave
+namespace HomePage
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace PhilipSmith_Capstone_moneySave
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Home());
+            Application.Run(new Form3());
         }
     }
 }
